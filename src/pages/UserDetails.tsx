@@ -6,14 +6,13 @@ import { useGetUserDetailsQuery } from "../service";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Avatar from "@mui/material/Avatar";
 import CardMedia from "@mui/material/CardMedia";
 import Container from "@mui/material/Container";
 import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
+import Intro from "../components/Intro";
 import { getIsLightMode } from "../store/themeSlice";
 import { getCardStyle } from "../theme";
-import Intro from "../components/Intro";
 
 const NOT_APPLICABLE = "N/A";
 const CARD_IMAGE_HEIGHT = 320;
