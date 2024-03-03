@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PaletteMode } from "@mui/material";
+import { getSystemThemeMode } from "../helpers";
 
 const initialState: {
   mode: PaletteMode;
 } = {
-  mode: "light",
+  mode: getSystemThemeMode(),
 };
 
 export const themeSlice = createSlice({
@@ -17,8 +18,9 @@ export const themeSlice = createSlice({
   },
   selectors: {
     getMode: (state) => state.mode,
+    getIsLightMode: (state) => state.mode === 'light',
   }
 });
 
 export const { toggleTheme } = themeSlice.actions;
-export const { getMode } = themeSlice.selectors;
+export const { getMode, getIsLightMode } = themeSlice.selectors;

@@ -1,46 +1,37 @@
-import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import AppAppBar from './components/AppAppBar';
-import { getMode, toggleTheme } from './store/themeSlice';
+import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import getTheme from './theme';
+import { useSelector } from "react-redux";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import AppNavBar from "./components/AppNavBar";
+import Layout from "./components/Layout";
+import NotFound from "./pages/NotFound";
+import UserDetails from "./pages/UserDetails";
+import UserList from "./pages/UserList";
+import { getMode } from "./store/themeSlice";
+import getTheme from "./theme";
 
 function App() {
-  const [count, setCount] = useState(0);
   const mode = useSelector(getMode);
   const theme = createTheme(getTheme(mode));
-  const dispatch = useDispatch();
-  const toggleMode = () => dispatch(toggleTheme());
+
   return (
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div>
-        <AppAppBar mode={mode} toggleColorMode={toggleMode} />
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      </ThemeProvider>
-  )
+      <Router>
+        <AppNavBar />
+        <Layout>
+          <Container maxWidth="lg" sx={{ mb: 2 }}>
+            <Routes>
+              <Route path="/" index element={<UserList />} />
+              <Route path="/user/:username" element={<UserDetails />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Container>
+        </Layout>
+      </Router>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
