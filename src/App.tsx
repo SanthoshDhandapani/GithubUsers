@@ -1,14 +1,25 @@
 import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import AppAppBar from './components/AppAppBar';
+import { getMode, toggleTheme } from './store/themeSlice';
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import getTheme from './theme';
 
 function App() {
   const [count, setCount] = useState(0);
-
+  const mode = useSelector(getMode);
+  const theme = createTheme(getTheme(mode));
+  const dispatch = useDispatch();
+  const toggleMode = () => dispatch(toggleTheme());
   return (
-    <>
+      <ThemeProvider theme={theme}>
+      <CssBaseline />
       <div>
+        <AppAppBar mode={mode} toggleColorMode={toggleMode} />
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -28,7 +39,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+      </ThemeProvider>
   )
 }
 
