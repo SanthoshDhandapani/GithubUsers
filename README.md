@@ -23,6 +23,24 @@ https://github-users-wine.vercel.app
 
 React, Redux, Typescript, Material UI, Emotion
 
+## Screenshots
+
+User List | User List - Dark Mode
+--- | ---
+![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_list.png) | ![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_list_dark.png)
+
+User Detail | User Detail - Dark Mode
+--- | ---
+![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_detail.png) | ![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_detail_dark.png)
+
+Mobile: User List | Mobile: User List - Dark Mode
+--- | ---
+![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_list_mobile.png) | ![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_list_mobile_dark.png)
+
+Mobile: User Detail - Dark Mode
+---
+![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_detail_mobile_dark.png)
+
 ## Demo
 
  - [App Recording](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/app_demo_recording.mp4)
