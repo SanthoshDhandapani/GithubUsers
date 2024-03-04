@@ -20,7 +20,7 @@ import { getCardStyle } from "../theme";
 import Intro from "../components/Intro";
 
 const TableRowsLoader: React.FC<{ rowsNum: number }> = ({ rowsNum }) => {
-  return [...Array(rowsNum)].map((_, index) => (
+  return Array(rowsNum).map((_, index) => (
     <TableRow key={index}>
       <TableCell component="th" scope="row">
         <Skeleton animation="wave" variant="text" />
@@ -65,7 +65,7 @@ const UserList: React.FC = () => {
     return function () {
       document.removeEventListener("scroll", onScroll);
     };
-  }, [page, isFetching]);
+  }, [page, isFetching, isError]);
 
   return (
     <>
@@ -88,7 +88,7 @@ const UserList: React.FC = () => {
           <TableRowsLoader rowsNum={8} />
         ) : (
           <TableBody>
-            {users?.map((user: any) => (
+            {users?.map((user) => (
               <TableRow key={user.login}>
                 <TableCell align="center">
                   <Avatar

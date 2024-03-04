@@ -16,8 +16,6 @@ declare module "@mui/material/styles/createPalette" {
     800: string;
     900: string;
   }
-
-  interface PaletteColor extends ColorRange {}
 }
 
 export const brand = {
@@ -648,7 +646,7 @@ export default function getTheme(mode: PaletteMode): ThemeOptions {
 }
 
 export const getCardStyle = (isLightMode: boolean) => ({
-  p: {xs: 0, sm: 2, md: 6},
+  p: { xs: 0, sm: 2, md: 6 },
   display: "flex",
   flexDirection: "column",
   gap: 4,

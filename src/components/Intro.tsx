@@ -5,10 +5,10 @@ import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { getIsLightMode } from "../store/themeSlice";
 
-type IntroProps = {
+interface IntroProps {
   caption1: string;
   caption2: string;
-};
+}
 
 export default function Intro({ caption1, caption2 }: IntroProps) {
   const isLightMode = useSelector(getIsLightMode);

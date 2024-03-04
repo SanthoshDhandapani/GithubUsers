@@ -19,12 +19,12 @@ function AppNavBar() {
   const lightMode = useSelector(getIsLightMode);
   const toggleMode = useCallback(
     () => dispatch(toggleTheme()),
-    [dispatch, toggleTheme]
+    [dispatch]
   );
   const navigateToRoot = useCallback(()=> {
     window.scrollTo(0, 0);
     navigate("/");
-  },[window, navigate]);
+  },[navigate]);
 
   return (
     <div>

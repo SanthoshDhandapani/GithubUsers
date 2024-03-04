@@ -1,22 +1,24 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { getUniqueEntries } from '../helpers';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { getUniqueEntries } from "../helpers";
+import { UserDetail, UserList } from "../types";
 
-const GITHUB_API_BASE = 'https://api.github.com';
+const GITHUB_API_BASE = "https://api.github.com";
 
 export const githubApi = createApi({
-  reducerPath: 'githubApi',
+  reducerPath: "githubApi",
   baseQuery: fetchBaseQuery({ baseUrl: GITHUB_API_BASE }),
   endpoints: (builder) => ({
-    getUsers: builder.query({
+    getUsers: builder.query<UserList, number>({
       query: (page: number) => `users?since=${page * 30}`,
       // Only have one cache entry because the arg always maps to one string
       serializeQueryArgs: ({ endpointName }) => endpointName,
       // Always merge incoming data to the cache entry
-      merge: (currentCache, newItems) => (getUniqueEntries([...currentCache, ...newItems], 'login')),
+      merge: (currentCache, newItems) =>
+        getUniqueEntries([...currentCache, ...newItems], "login"),
       // Refetch when the page arg changes
       forceRefetch: ({ currentArg, previousArg }) => currentArg !== previousArg,
     }),
-    getUserDetails: builder.query({
+    getUserDetails: builder.query<UserDetail, string>({
       query: (username: string) => `users/${username}`,
     }),
   }),

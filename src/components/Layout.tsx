@@ -4,7 +4,7 @@ import { brand, gray } from "../theme";
 import { useSelector } from "react-redux";
 import { getIsLightMode } from "../store/themeSlice";
 
-const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
+const Layout = ({ children }: React.PropsWithChildren) => {
   const isLightMode = useSelector(getIsLightMode);
   return (
     <Box

@@ -1,13 +1,15 @@
+import { UserList } from "./types";
+
 export const getSystemThemeMode = () =>
   window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches
     ? "dark"
     : "light";
 
 export const getUniqueEntries = (
-  arr: { [key: string]: string }[],
+  arr: UserList,
   key: string
 ) => {
   return arr.filter(
-    (obj, index) => arr.findIndex((item) => item[key] === obj[key]) === index
+    (obj, index) => arr.findIndex((item) => (item as never)[key] === (obj as never)[key]) === index
   );
 };

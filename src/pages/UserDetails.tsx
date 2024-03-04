@@ -17,7 +17,7 @@ import { getCardStyle } from "../theme";
 const NOT_APPLICABLE = "N/A";
 const CARD_IMAGE_HEIGHT = 320;
 
-const getValue = (value: any, fallBackValue = NOT_APPLICABLE) =>
+const getValue = (value: unknown, fallBackValue = NOT_APPLICABLE) =>
   value || fallBackValue;
 
 const UserDetailsLoading = () => {
@@ -47,16 +47,18 @@ const CardContentLabel: React.FC<{ header: string; value: string }> = ({
 
 const UserDetails: React.FC = () => {
   const { username = "" } = useParams<{ username: string }>();
-  const { data: user, isLoading } = useGetUserDetailsQuery(username);
+  const { data, isLoading } = useGetUserDetailsQuery(username);
   const isLightMode = useSelector(getIsLightMode);
   const navigate = useNavigate();
 
+  const user = data!;
+
   const { name, avatar_url, login } = user || {};
   const userNameSplit = name?.split(" ");
-  const firstName = getValue(userNameSplit?.[0]);
-  const secondName = getValue(userNameSplit?.[1]);
-  const location = getValue(user?.location);
-  const company = getValue(user?.company);
+  const firstName = getValue(userNameSplit?.[0]) as string;
+  const secondName = getValue(userNameSplit?.[1]) as string;
+  const location = getValue(user?.location) as string;
+  const company = getValue(user?.company) as string;
 
   return (
     <>
