@@ -37,9 +37,6 @@ Mobile: User List | Mobile: User List - Dark Mode
 --- | ---
 ![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_list_mobile.png) | ![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_list_mobile_dark.png)
 
-Mobile: User Detail - Dark Mode
----
-![App Screenshot](https://raw.githubusercontent.com/SanthoshDhandapani/GithubUsers/main/demo/screenshots/user_detail_mobile_dark.png)
 
 ## Demo
 
