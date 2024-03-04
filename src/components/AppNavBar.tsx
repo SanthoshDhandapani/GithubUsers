@@ -21,6 +21,11 @@ function AppNavBar() {
     () => dispatch(toggleTheme()),
     [dispatch, toggleTheme]
   );
+  const navigateToRoot = useCallback(()=> {
+    window.scrollTo(0, 0);
+    navigate("/");
+  },[window, navigate]);
+
   return (
     <div>
       <AppBar
@@ -65,10 +70,7 @@ function AppNavBar() {
               <Box sx={{ display: { xs: "flex" } }}>
                 <MenuItem
                   sx={{ py: "6px", px: "12px" }}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                    navigate("/");
-                  }}
+                  onClick={navigateToRoot}
                 >
                   <GitHubIcon fontSize="large" />
                   <Typography

@@ -14,8 +14,8 @@ https://github-users-wine.vercel.app
 
 - System based Light/dark selection
 - Light/dark mode toggle
-- Live previews
-- Full screen mode
+- Lazy Loading
+- Caching Support
 - Fully responsive
 - Cross platform
 
